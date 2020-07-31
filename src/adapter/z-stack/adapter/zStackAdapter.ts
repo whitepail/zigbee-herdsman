@@ -705,7 +705,7 @@ class ZStackAdapter extends Adapter {
             srcendpoint: sourceEndpoint,
             clusterid: clusterID,
             transid: transactionID,
-            options: 0, // TODO: why was this here? Constants.AF.options.ACK_REQUEST | DISCV_ROUTE,
+            options: Constants.AF.options.DISCV_ROUTE,
             radius: radius,
             len: data.length,
             data: data,

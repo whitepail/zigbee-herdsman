@@ -29,7 +29,7 @@ interface DeviceLeavePayload {
 }
 
 interface PermitJoinChangedPayload {
-    permitted: boolean, reason: 'timer_expired' | 'manual'
+    permitted: boolean, reason: 'timer_expired' | 'manual', timeout: number
 }
 
 const CommandsLookup: {[s: string]: MessagePayloadType} = {
@@ -79,6 +79,7 @@ const CommandsLookup: {[s: string]: MessagePayloadType} = {
     'getPinCodeRsp': 'commandGetPinCodeRsp',
     'arrivalSensorNotify': 'commandArrivalSensorNotify',
     'getPanelStatus': 'commandGetPanelStatus',
+    'checkin': 'commandCheckIn',
 
     // HEIMAN scenes cluster
     'atHome': 'commandAtHome',
@@ -93,6 +94,7 @@ const CommandsLookup: {[s: string]: MessagePayloadType} = {
     'getIdAndKeyCodeListRsp': 'commandGetIdAndKeyCodeListRsp',
 
     'setTimeRequest': 'commandSetTimeRequest', // Tuya time sync
+    'activeStatusReport': 'commandActiveStatusReport', // Tuya active status report
 };
 
 type MessagePayloadType =
@@ -113,7 +115,7 @@ type MessagePayloadType =
     "commandArrivalSensorNotify" | 'commandCommisioningNotification' |
     'commandAtHome' | 'commandGoOut' | 'commandCinema' | 'commandRepast' | 'commandSleep' |
     'commandStudyKeyRsp' | 'commandCreateIdRsp' | 'commandGetIdAndKeyCodeListRsp' | 'commandSetTimeRequest' |
-    'commandGetPanelStatus';
+    'commandGetPanelStatus' | 'commandCheckIn' | 'commandActiveStatusReport';
 
 interface MessagePayload {
     type: MessagePayloadType;
